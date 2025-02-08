@@ -1,118 +1,119 @@
-# FileOrg
-1. Imports and Initial Setup
+File Organizer with Multi-language Support
 
-    Modules Imported:
-        os: For file and directory operations.
-        json: (Imported but not used in the current snippet—possibly intended for future enhancements such as saving configuration.)
-        sys: To adjust system-level settings, like output encoding.
+A Python-based file organization tool that sorts files into subfolders based on file type. The application supports multiple languages (English, Spanish, French, Chinese Simplified, Hindi) and offers features such as a dry run mode, conflict resolution, and placeholder options for managing file categories.
+Table of Contents
 
-    Encoding Configuration:
-        sys.stdout.reconfigure(encoding='utf-8') ensures that Unicode characters (from languages like Chinese and Hindi) are handled properly when printing to the console.
+    Overview
+    Features
+    How It Works
+    Installation
+    Usage
+    Customization & Future Work
+    Contributing
+    License
 
-2. Multi-Language Support
+Overview
 
-    Translations Dictionary:
-        A dictionary named translations contains localized strings for each supported language. Each language (identified by its language code such as "en" for English, "es" for Spanish, etc.) has its own dictionary mapping keys (like "choose_option", "invalid_input", etc.) to the appropriate translated messages.
+This project provides a menu-driven Python script that helps you organize files within a given folder. Files are automatically moved into subfolders according to their file type (e.g., Text Files, Document Files, Image Files). The application supports multiple languages so you can interact with the interface in your preferred language.
+Features
 
-    Settings:
-        The settings dictionary holds application-wide settings, currently with one key: "language", which defaults to English ("en").
-
-3. File Categories
-
-    Categories Dictionary:
-        The categories dictionary maps category names (e.g., "Text Files", "Document Files") to a set of file extensions. These are used later to determine into which subfolder a file should be moved based on its extension.
-        If a file's extension is not found in any category, it is grouped under "Other Files".
-
-4. Key Functions
-a. notify_user(message_key)
-
-    Purpose:
-    Displays a message to the user in the currently selected language.
-
-    Mechanism:
-        Retrieves the current language from settings.
-        Uses the translations dictionary to get the corresponding string for the provided message_key.
-        If the translation is missing, it prints an error message indicating the missing key.
-
-b. user_menu()
-
-    Purpose:
-    Displays a menu with several options (such as sorting files, performing a dry run, changing language, etc.) and prompts the user to make a selection.
-
-    Features:
-        The menu options are dynamically translated based on the current language.
-        It validates that the user input is an integer between 1 and 9.
-        Returns the user's choice or None if the input is invalid.
-
-c. change_language()
-
-    Purpose:
-    Provides a mechanism for the user to change the application's language.
-
-    Features:
-        Lists the available languages.
-        Maps a numeric input (from 1 to 5) to a language code.
-        Updates the settings["language"] accordingly.
-        Uses notify_user to inform the user whether the operation was successful or if the input was invalid.
-
-d. organize_files_by_type(folder, dry_run, conflict_resolution)
-
-    Purpose:
-    Organizes files by moving them into subfolders named according to file categories.
-
-    Functionality:
-        Uses os.walk to recursively traverse the provided folder.
-        For each file, the script extracts its file extension and determines its category (or defaults to "Other Files" if no match is found).
-        Dry Run Mode:
-            If dry_run is set to True, it only prints out what actions it would perform (e.g., showing which file would go into which folder) without making any changes.
-        Conflict Resolution:
-            If a file with the same name already exists in the target folder, the script can either:
-                Skip: Do not move the file.
-                Rename: Append _copy to the filename.
-                (Although "overwrite" is mentioned in the prompt for conflict resolution, it is not explicitly implemented in the code.)
-
-e. main()
-
-    Purpose:
-    Serves as the entry point and manages the overall flow of the program.
-
-    Features:
-        Runs an infinite loop where it repeatedly shows the menu and processes the user's selection.
-        Options Include:
-            Option 9: Exit the program.
-            Option 7: Change the application's language by calling change_language().
-            Option 8: Manage file categories (currently a placeholder for viewing, adding, or removing categories).
-            Other Options:
-            For other menu choices, the user is prompted to provide:
-                A folder path to organize.
-                A method for conflict resolution (e.g., "skip" or "rename").
-                Whether to perform a dry run (if the selected option corresponds to dry run).
-        After completing an operation, it notifies the user that the operation was completed successfully.
-
-    Program Exit:
-    When the user selects the exit option, it prints an exit message (localized) and breaks out of the loop.
-
-    Script Execution:
-    The if __name__ == "__main__": block ensures that main() runs when the script is executed as a standalone program.
-
-5. Overall Workflow
-
-    Startup:
-    The program starts, configures Unicode output, and defaults to English.
-
-    User Menu Display:
-    The user is presented with a menu of options that are dynamically translated based on the current language setting.
-
-    User Interaction:
-        The user can choose to:
-            Organize files by type (with options for a dry run and conflict resolution).
-            Change the application's language.
-            Manage file categories (currently as placeholders).
-            Exit the program.
+    Multi-Language Support:
+    The interface supports English, Spanish, French, Chinese Simplified, and Hindi. Messages and menu options are dynamically translated based on the current language setting.
 
     File Organization:
-        When organizing files, the user provides a folder path.
-        Files are then categorized by their extension and either moved to the corresponding subfolder (if not a dry run) or just previewed (if a dry run is selected).
+    Files are sorted into subfolders based on their extensions. For example, .txt, .md, and .csv files are grouped under "Text Files."
 
-    Operation Completion:
-    After each operation, the user is notified of its successful completion.
+    Dry Run Mode:
+    Preview the organization process without making any changes to your files.
+
+    Conflict Resolution:
+    Choose from different conflict resolution strategies when a file with the same name exists in the target folder:
+        Skip: Do not move the conflicting file.
+        Rename: Automatically rename the file (e.g., appending _copy).
+
+    File Category Management (Placeholder):
+    Options are provided for viewing, adding, and removing file categories. These functions are currently placeholders for future expansion.
+
+How It Works
+
+The script is structured into several key functions:
+
+    notify_user(message_key)
+    Displays messages to the user in the selected language by retrieving translations from a predefined dictionary.
+
+    user_menu()
+    Presents a dynamically translated menu to the user and handles input validation. Options include sorting files, performing a dry run, changing language, and managing file categories.
+
+    change_language()
+    Allows users to select and change the application language. The function updates the language setting and confirms the operation.
+
+    organize_files_by_type(folder, dry_run, conflict_resolution)
+    Walks through the specified folder, categorizes files based on their extensions, and either simulates (dry run) or performs the file organization. Conflict resolution (skip or rename) is applied when necessary.
+
+    main()
+    Acts as the entry point for the application. It continuously displays the menu and processes user selections until the exit option is chosen.
+
+Installation
+
+    Prerequisites:
+        Python 3.6 or later is required.
+
+    Clone the Repository:
+
+git clone https://github.com/yourusername/file-organizer.git
+cd file-organizer
+
+Run the Script:
+
+    python organizer.py
+
+    (Replace organizer.py with the actual filename if it’s different.)
+
+Usage
+
+    Start the Application:
+    Run the script from your terminal. The program will display a menu with options (translated based on the current language).
+
+    Select an Option:
+        Sort Files by Type:
+        Organizes files into subfolders.
+        Dry Run (Preview):
+        Simulates the organization process without moving any files.
+        Undo Last Operation:
+        Placeholder for undo functionality.
+        Multi-Folder Support:
+        Placeholder for organizing multiple folders.
+        Restore Point / Update File Types:
+        Placeholders for future features.
+        Change Language:
+        Switch the interface language.
+        Manage File Categories:
+        View, add, or remove file categories (currently placeholders).
+        Exit:
+        Exits the program.
+
+    When Organizing Files:
+        Enter the folder path when prompted.
+        Choose a conflict resolution method (skip or rename).
+        (Note: Although "overwrite" is mentioned, it is not yet implemented.)
+
+Customization & Future Work
+
+    Implement Overwrite:
+    Add functionality to overwrite files when a conflict occurs.
+
+    Enhance Category Management:
+    Develop the placeholders to dynamically view, add, or remove file categories. Consider saving changes using the json module.
+
+    Error Handling:
+    Improve robustness by adding better error handling and logging.
+
+    Additional Features:
+    Consider adding an "undo" feature or more advanced organization rules.
+
+Contributing
+
+Contributions are welcome! If you have suggestions, bug fixes, or new features, please open an issue or submit a pull request.
+License
+
+This project is licensed under the MIT License.
