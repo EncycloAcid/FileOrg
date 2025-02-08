@@ -1,6 +1,6 @@
-File Organizer with Multi-language Support
+FileOrg
 
-A Python-based file organization tool that sorts files into subfolders based on file type. The application supports multiple languages (English, Spanish, French, Chinese Simplified, Hindi) and offers features such as a dry run mode, conflict resolution, and placeholder options for managing file categories.
+FileOrg is a Python-based file organization tool that sorts files into subfolders based on file type. With multi-language support (English, Spanish, French, Chinese Simplified, and Hindi), FileOrg offers features like dry-run mode, conflict resolution, and placeholders for managing file categories.
 Table of Contents
 
     Overview
@@ -14,44 +14,44 @@ Table of Contents
 
 Overview
 
-This project provides a menu-driven Python script that helps you organize files within a given folder. Files are automatically moved into subfolders according to their file type (e.g., Text Files, Document Files, Image Files). The application supports multiple languages so you can interact with the interface in your preferred language.
+FileOrg is a menu-driven Python script designed to help you organize files within a specified folder. Files are automatically moved into subfolders based on their file type (for example, Text Files, Document Files, Image Files, etc.). The application supports multiple languages, making it accessible to a diverse audience.
 Features
 
     Multi-Language Support:
-    The interface supports English, Spanish, French, Chinese Simplified, and Hindi. Messages and menu options are dynamically translated based on the current language setting.
+    Interact with FileOrg in English, Spanish, French, Chinese Simplified, or Hindi. All messages and menu options are dynamically translated based on the selected language.
 
     File Organization:
-    Files are sorted into subfolders based on their extensions. For example, .txt, .md, and .csv files are grouped under "Text Files."
+    Automatically sorts files into subfolders according to their extensions. For example, files like .txt, .md, and .csv are grouped under "Text Files."
 
     Dry Run Mode:
     Preview the organization process without making any changes to your files.
 
     Conflict Resolution:
-    Choose from different conflict resolution strategies when a file with the same name exists in the target folder:
-        Skip: Do not move the conflicting file.
-        Rename: Automatically rename the file (e.g., appending _copy).
+    Choose how to handle file name conflicts:
+        Skip: Do not move files that conflict with an existing file.
+        Rename: Automatically rename conflicting files (e.g., by appending _copy).
 
     File Category Management (Placeholder):
-    Options are provided for viewing, adding, and removing file categories. These functions are currently placeholders for future expansion.
+    Provides options for viewing, adding, and removing file categories (currently placeholders for future enhancements).
 
 How It Works
 
-The script is structured into several key functions:
+FileOrg is structured into several key functions:
 
     notify_user(message_key)
-    Displays messages to the user in the selected language by retrieving translations from a predefined dictionary.
+    Displays messages in the selected language by retrieving translations from a predefined dictionary.
 
     user_menu()
-    Presents a dynamically translated menu to the user and handles input validation. Options include sorting files, performing a dry run, changing language, and managing file categories.
+    Presents a dynamically translated menu and handles user input. Options include organizing files, performing a dry run, changing language, and managing file categories.
 
     change_language()
-    Allows users to select and change the application language. The function updates the language setting and confirms the operation.
+    Allows users to switch the application's language. The function updates the language setting and confirms the change.
 
     organize_files_by_type(folder, dry_run, conflict_resolution)
-    Walks through the specified folder, categorizes files based on their extensions, and either simulates (dry run) or performs the file organization. Conflict resolution (skip or rename) is applied when necessary.
+    Walks through the specified folder, categorizes files based on their extensions, and either simulates (if dry run is enabled) or performs the file organization. Applies conflict resolution (skip or rename) when needed.
 
     main()
-    Acts as the entry point for the application. It continuously displays the menu and processes user selections until the exit option is chosen.
+    Acts as the entry point. It continuously displays the menu and processes user selections until the exit option is chosen.
 
 Installation
 
@@ -60,56 +60,56 @@ Installation
 
     Clone the Repository:
 
-git clone https://github.com/EncycloAcid/FileOrg.git
-cd file-organizer
+git clone https://github.com/yourusername/FileOrg.git
+cd FileOrg
 
-Run the Script:
+Run FileOrg:
 
-    python organizer.py
+    python fileorg.py
 
-    (Replace organizer.py with the actual filename if it’s different.)
+    (Replace fileorg.py with the actual filename if it differs.)
 
 Usage
 
-    Start the Application:
-    Run the script from your terminal. The program will display a menu with options (translated based on the current language).
+    Start FileOrg:
+    Run the script from your terminal. The program displays a menu with options translated based on your current language.
 
     Select an Option:
         Sort Files by Type:
-        Organizes files into subfolders.
+        Organizes files into subfolders based on file extensions.
         Dry Run (Preview):
         Simulates the organization process without moving any files.
         Undo Last Operation:
-        Placeholder for undo functionality.
+        (Placeholder for future functionality)
         Multi-Folder Support:
-        Placeholder for organizing multiple folders.
+        (Placeholder for future functionality)
         Restore Point / Update File Types:
-        Placeholders for future features.
+        (Placeholders for future features)
         Change Language:
         Switch the interface language.
         Manage File Categories:
         View, add, or remove file categories (currently placeholders).
         Exit:
-        Exits the program.
+        Exits the application.
 
-    When Organizing Files:
+    During File Organization:
         Enter the folder path when prompted.
         Choose a conflict resolution method (skip or rename).
-        (Note: Although "overwrite" is mentioned, it is not yet implemented.)
+        (Note: Although "overwrite" is mentioned as an option, it is not implemented yet.)
 
 Customization & Future Work
 
-    Implement Overwrite:
-    Add functionality to overwrite files when a conflict occurs.
+    Implement Overwrite Functionality:
+    Add support to overwrite files when conflicts occur.
 
     Enhance Category Management:
-    Develop the placeholders to dynamically view, add, or remove file categories. Consider saving changes using the json module.
+    Develop the placeholders to dynamically view, add, or remove file categories. You could also integrate configuration storage using the json module.
 
-    Error Handling:
-    Improve robustness by adding better error handling and logging.
+    Improve Error Handling:
+    Enhance robustness with additional error checking and logging.
 
     Additional Features:
-    Consider adding an "undo" feature or more advanced organization rules.
+    Consider adding an "undo" feature or more advanced file organization rules.
 
 Contributing
 
