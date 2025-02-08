@@ -60,7 +60,7 @@ Installation
 
     Clone the Repository:
 
-git clone https://github.com/yourusername/file-organizer.git
+git clone https://github.com/EncycloAcid/FileOrg.git
 cd file-organizer
 
 Run the Script:
