@@ -67,8 +67,6 @@ Run FileOrg:
 
     python fileorg.py
 
-    (Replace fileorg.py with the actual filename if it differs.)
-
 Usage
 
     Start FileOrg:
