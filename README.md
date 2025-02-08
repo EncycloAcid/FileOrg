@@ -116,17 +116,3 @@ e. main()
 
     Operation Completion:
     After each operation, the user is notified of its successful completion.
-
-Potential Enhancements
-
-    Implement Conflict Resolution “Overwrite”:
-    The prompt for conflict resolution mentions "overwrite" but the logic is not implemented.
-
-    Category Management:
-    The placeholders for adding, viewing, and removing categories could be expanded to allow dynamic modifications to the categories dictionary, possibly saving changes to a configuration file.
-
-    Error Handling Improvements:
-    Additional checks and error handling (for example, verifying permissions when renaming or moving files) could make the script more robust.
-
-    Use of json:
-    The imported json module might be used in the future to save and load settings or category configurations.
