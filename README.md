@@ -73,21 +73,28 @@ Usage
     Run the script from your terminal. The program displays a menu with options translated based on your current language.
 
     Select an Option:
-        Sort Files by Type:
+        1.Sort Files by Type:
         Organizes files into subfolders based on file extensions.
-        Dry Run (Preview):
-        Simulates the organization process without moving any files.
+        
+        2.Dry Run (Preview):
+        
+        3.Simulates the organization process without moving any files.
         Undo Last Operation:
         (Placeholder for future functionality)
-        Multi-Folder Support:
+        
+        4. Multi-Folder Support:
         (Placeholder for future functionality)
-        Restore Point / Update File Types:
+       
+        5.Restore Point / Update File Types:
         (Placeholders for future features)
-        Change Language:
+        
+        6.Change Language:
         Switch the interface language.
-        Manage File Categories:
+        
+        7.Manage File Categories:
         View, add, or remove file categories (currently placeholders).
-        Exit:
+        
+        8.Exit:
         Exits the application.
 
     During File Organization:
